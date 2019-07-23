@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests as req
 from bs4 import BeautifulSoup as soup
 import re
