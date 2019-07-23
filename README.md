@@ -1,4 +1,4 @@
-## Name
+# Name
 Qiita to LINE
 
 # Overview
