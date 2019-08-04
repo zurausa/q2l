@@ -36,7 +36,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            sudo pip install -upgrade pip
+            pip install -upgrade pip
             pip install -r requirements.txt
 
       - save_cache:
