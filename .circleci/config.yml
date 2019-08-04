@@ -8,8 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      #- image: circleci/python:3.6.1
-      - image: ubuntu:14.04
+      - image: circleci/python:3.6.4
+      #- image: ubuntu:14.04
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -22,18 +22,15 @@ jobs:
       - checkout
 
       # Download and cache dependencies
+      # requirements.txtに変更がなければ、以前作成したPython仮想環境を復元
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-            
-      - run:
-        name: Install python module and awsebcli
-        command: |
-          sudo apt update && sudo apt install -y python-dev python-pip
-          pip install awsebcli --upgrade --user
 
+
+       # 現在のrequirements.txtに基づきPython仮想環境を作成または更新
       - run:
           name: install dependencies
           command: |
