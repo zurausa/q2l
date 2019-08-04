@@ -36,6 +36,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
+            ls -la
             sudo pip install --upgrade pip
             pip install -r requirements.txt
 
