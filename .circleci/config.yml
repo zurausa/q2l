@@ -28,13 +28,16 @@ jobs:
             - v1-dependencies-{{ checksum "requirements.txt" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
+        
+        - run:
+          name: install or upgrade pip
+          command: |
+            sudo pip install --upgrade pip
 
        # 現在のrequirements.txtに基づきPython仮想環境を作成または更新
       - run:
           name: install dependencies
           command: |
-            pip install -U pip
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
